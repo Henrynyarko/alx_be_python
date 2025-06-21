@@ -1,17 +1,13 @@
-from book_class import Book
+from library_system import Book, EBook, PrintBook, Library
+
+print("main.py is running")  # Debug message
 
 def main():
-    # Creating an instance of Book
-    my_book = Book("1984", "George Orwell", 1949)
-
-    # Demonstrating the __str__ method
-    print(my_book)  # Uses __str__
-
-    # Demonstrating the __repr__ method
-    print(repr(my_book))  # Uses __repr__
-
-    # Deleting the instance to trigger __del__
-    del my_book
+    my_library = Library()
+    my_library.add_book(Book("Pride and Prejudice", "Jane Austen"))
+    my_library.add_book(EBook("Snow Crash", "Neal Stephenson", 500))
+    my_library.add_book(PrintBook("The Catcher in the Rye", "J.D. Salinger", 234))
+    my_library.list_books()
 
 if __name__ == "__main__":
     main()
